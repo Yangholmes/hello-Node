@@ -22,4 +22,9 @@ eventEmitter.on('data_received', function(){
 // 触发 connection 事件
 eventEmitter.emit('connection');
 
+eventEmitter.on('error', ()=>{
+  console.log(arguments);
+});
+eventEmitter.emit('error'); // 如果没有定义error事件监听器的话，Node会抛出异常，并退出程序，输出错误信息
+
 console.log("程序执行完毕。");
